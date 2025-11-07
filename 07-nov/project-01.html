@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+      <h2>Employee Feedback Forms</h2>
+      <form action="/feedback_form" method="post" target="-self">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" placeholder="your first name"><br>
+
+            <label for="email">email:</label><br>
+            <input type="email" id="email" name="email" placeholder="name@gmail.com"><br><br>
+            
+
+            <label for="department">Department:</label><br>
+
+            <select id="department" name="department">
+                  <option value="training">training</option>
+                  <option value="development">development</option>
+                  <option value="design">design</option>
+                  <option value="marketing">marketing</option>
+            </select><br>
+
+            <label for="role/position:">role/position:</label><br>
+            <input type="text" id="role" name="role" placeholder="your role/position"><br><br>
+          
+            <label for="overall Experience">overall Experience:</label><br>
+            <input type="text" id="experience" name="experience" placeholder="type description here"><br><br>
+     
+            <label for="feedback:">feedback</label><br>
+            <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+            <br><br>
+            <input style="background-color:rgb(15, 134, 237);" type="submit">
+      </form>
+
+</body>
+</html>
