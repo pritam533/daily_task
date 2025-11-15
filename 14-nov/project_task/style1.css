@@ -2,7 +2,7 @@
        font-family: Arial, sans-serif;
        margin: 0;
        padding: 0;
-       background: linear-gradient(to right, #eae191, #8de4d7, #ed9797, #7b7043);
+       background: linear-gradient(to right, #eae191, #ec8c17);
        min-height: 100vh;
        display: flex;
        flex-direction: column;
@@ -93,3 +93,4 @@
  input:invalid:not(:focus):not(:placeholder-shown) {
        border-color: red;
  }
+
