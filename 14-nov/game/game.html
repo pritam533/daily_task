@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Game</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+      <h1>Let's play the Game!</h1>
+
+      <div class="game-container">
+
+            <div class="player-box">
+                  <h2>User</h2>
+                  <img src="C:\Users\pritam\Desktop\game\user.jpeg" class="avatar">
+                  <div id="user-choice" class="choice-display">Your Choice</div>
+                  <div class="dice" onclick="spinDice()">TAP TO SPIN</div>
+                  <div id="user-score" class="score">Points: 0</div>
+            </div>
+
+            <div class="player-box">
+                  <h2>Computer</h2>
+                  <img src="C:\Users\pritam\Desktop\game\system.jpeg" class="avatar">
+                  <div id="comp-choice" class="choice-display">Computer Choice</div>
+                  <div id="comp-score" class="score">Points: 0</div>
+            </div>
+
+      </div>
+
+      <div id="result" class="result">Result</div>
+
+      <button class="reset-btn" onclick="resetGame()">RESET GAME</button>
+
+      <script src="script.js"></script>
+</body>
+
+</html>
