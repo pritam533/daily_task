@@ -1,0 +1,169 @@
+db.products.insertMany([
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c50"),
+    name: "Ultimate Laptop Pro",
+    category: "Electronics",
+    price: 1250.00,
+    stock: 15,
+    tags: ["New", "Premium", "Bestseller"],
+    details: { color: "Silver", brand: "TechCo" },
+    reviews: [
+      { rating: 5, date: ISODate("2025-10-20T00:00:00.000Z") },
+      { rating: 4, date: ISODate("2025-11-01T00:00:00.000Z") }
+    ]
+  },
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c51"),
+    name: "Basic T-Shirt",
+    category: "Apparel",
+    price: 25.00,
+    stock: 5,
+    tags: ["Sale"],
+    details: { color: "Blue", brand: "FashionInc" },
+    reviews: [
+      { rating: 2, date: ISODate("2025-09-15T00:00:00.000Z") },
+      { rating: 5, date: ISODate("2025-10-25T00:00:00.000Z") }
+    ]
+  },
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c52"),
+    name: "High-End Smartphone",
+    category: "Electronics",
+    price: 999.99,
+    stock: 8,
+    tags: ["4G", "New"],
+    details: { color: "Black", brand: "TechCo" },
+    reviews: [
+      { rating: 5, date: ISODate("2025-10-28T00:00:00.000Z") },
+      { rating: 5, date: ISODate("2025-11-05T00:00:00.000Z") },
+      { rating: 4, date: ISODate("2025-11-10T00:00:00.000Z") }
+    ]
+  },
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c53"),
+    name: "Adventure Backpack",
+    category: "Accessories",
+    price: 60.00,
+    stock: 3,
+    tags: ["Travel", "Outdoor", "Durable"],
+    details: { color: "Green", brand: "EconomyBrand" },
+    reviews: [
+      { rating: 4, date: ISODate("2025-08-01T00:00:00.000Z") }
+    ]
+  },
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c54"),
+    name: "Classic Novel Set",
+    category: "Books",
+    price: 45.00,
+    stock: 20,
+    tags: ["Fiction", "Collection"],
+    details: { color: "Mixed", brand: "PublisherX" },
+    reviews: [
+      { rating: 5, date: ISODate("2025-07-01T00:00:00.000Z") },
+      { rating: 5, date: ISODate("2025-07-15T00:00:00.000Z") },
+      { rating: 5, date: ISODate("2025-08-01T00:00:00.000Z") }
+    ]
+  },
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c55"),
+    name: "Winter Jacket",
+    category: "Apparel",
+    price: 180.50,
+    stock: 2,
+    tags: ["Seasonal", "Warm"],
+    details: { color: "Red", brand: "FashionInc" },
+    reviews: [
+      { rating: 4, date: ISODate("2025-10-01T00:00:00.000Z") }
+    ]
+  },
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c56"),
+    name: "Economy Mouse",
+    category: "Electronics",
+    price: 19.99,
+    stock: 50,
+    tags: ["Wired", "Budget"],
+    details: { color: "Grey", brand: "EconomyBrand" },
+    reviews: [
+      { rating: 3, date: ISODate("2025-09-01T00:00:00.000Z") },
+      { rating: 3, date: ISODate("2025-09-10T00:00:00.000Z") }
+    ]
+  },
+  {
+    _id: ObjectId("6559d3e51a6d47b6e9273c57"),
+    name: "Silver Bracelet",
+    category: "Jewelry",
+    price: 49.99,
+    stock: 10,
+    tags: ["Gift", "Accessory"],
+    details: { color: "Silver", brand: "ShineCo" },
+    reviews: [
+      { rating: 5, date: ISODate("2025-11-01T00:00:00.000Z") }
+    ]
+  }
+]);
+
+
+
+
+1. Find all products that have a price greater than ($gt) $100 but less than or equal to ($lte) $500.
+ans:
+
+ db.products.find({
+  price: { $gt: 100, $lte: 500 }
+})
+
+2. Retrieve products that are in the "Apparel" category OR ($or) have a stock quantity less than 5.
+
+ans:
+db.products.find({
+  $or: [
+    { category: "Apparel" },
+    { stock: { $lt: 5 } }
+  ]
+})
+
+3. Find documents where the details.color field does not exist ($exists: false).
+ans:
+
+db.products.find({
+  "details.color": { $exists: false }
+})
+
+4. Find products whose tags array contains both "New" AND "Premium" (using a comma-separated list in the query document).
+ans:
+
+db.products.find({
+  tags: { $all: ["New", "Premium"] }
+})
+
+5. Find products where at least one review has a rating less than 3 AND the review date is before 2025-10-01 (using $elemMatch).
+ans:
+db.products.find({
+reviews: {
+$elemMatch: {
+rating: { $lt: 3 },
+date: { $lt: new Date("2025-10-01") }
+}
+}
+})
+
+
+6. Find all products with a price less than $100, and sort ($sort) the results by name in descending order (Z to A).
+ans: 
+
+db.products.find({
+  price: { $lt: 100 }
+}).sort({
+  name: -1
+})
+
+
+
+7. Retrieve the 3 cheapest products across the entire collection.
+ans:
+
+db.products.find().sort({
+  price: 1
+}).limit(3)
