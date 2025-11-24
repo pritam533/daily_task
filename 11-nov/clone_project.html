@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en" scroll="yes">
+
+<head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Learning Solutions</title>
+      <style>
+            body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  background-color: #f5f5f5;
+            }
+
+            /* Navigation bar */
+            .navigation {
+                  background-color: #0ea8e0;
+                  padding: 15px;
+                  text-align: right;
+            }
+
+            .navigation a {
+                  color: white;
+                  margin: 0 20px;
+                  text-decoration: none;
+                  font-weight: bold;
+            }
+
+            .navigation a:hover {
+                  text-decoration: underline;
+            }
+
+            h1 {
+                  color: #0ea8e0;
+                  margin-left: 20px;
+            }
+
+
+            .courses {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 15px;
+                  justify-content: center;
+                  padding: 20px;
+                  max-width: 1200px;
+                  margin: auto;
+            }
+
+            .course-card {
+                  position: relative;
+                  background-color: white;
+                  border-radius: 10px;
+                  overflow: hidden;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                  transition: transform 0.3s ease;
+            }
+
+            .course-card:hover {
+                  transform: scale(1.03);
+            }
+
+            .course-card img {
+                  width: 100%;
+                  height: 300px;
+                  object-fit: cover;
+            }
+
+            .course-info {
+                  position: absolute;
+                  bottom: 10px;
+                  left: 10px;
+                  background-color: rgba(255, 255, 255, 0.9);
+                  padding: 5px 10px;
+                  border-radius: 5px;
+                  font-weight: bold;
+                  color: #333;
+            }
+
+            .duration {
+                  color: #0ea8e0;
+                  font-size: 14px;
+                  display: block;
+                  margin-top: 3px;
+            }
+
+           
+      </style>
+  <style>      
+      div {
+      border: 2px solid black;
+      background-color: lightblue;
+      padding-top: 10px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 80px;
+      }
+      
+      div {
+      border: 2px solid black;
+      background-color: lightblue;
+      padding: 50px 30px 50px 80px;}
+
+      
+    .features-section {
+      display: flex;
+      justify-content: auto;
+      align-items: stretch;
+      gap: 20px;
+      padding: 50px 100px;
+      flex-wrap: wrap;
+      background-color: #ffffff;
+    }
+
+    .feature-card {
+      flex: 1 1 250px;
+      background-color: #f4fbfd;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(27, 153, 216, 0.1);
+    }
+
+
+    .feature-card h3 {
+      color: #002c48;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .features-section {
+        padding: 30px;
+      }
+
+      .feature-card {
+        flex: 1 1 100%;
+      }
+    }
+      </style>
+
+</head>
+
+<body>
+      <h1>Learning Solutions</h1>
+
+      <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+      </div>
+
+      <div class="courses">
+            <div class="course-card">
+                  <img src="C:\Users\pritam\Downloads\cat-1.jpg" alt="Java Full Stack">
+                  <div class="course-info">
+                        Java Full Stack <span class="duration">360 Hrs</span>
+                  </div>
+            </div>
+
+            <div class="course-card">
+                  <img src="C:\Users\pritam\Downloads\cat-2.jpg" alt="Web Development & Design">
+                  <div class="course-info">
+                        Web Development & Design <span class="duration">320 Hrs</span>
+                  </div>
+            </div>
+
+            <div class="course-card">
+                  <img src="C:\Users\pritam\Downloads\cat-3.jpg" alt="Data Analytics">
+                  <div class="course-info">
+                        Data Analytics <span class="duration">380 Hrs</span>
+                  </div>
+            </div>
+
+            <div class="course-card">
+                  <img src="C:\Users\pritam\Downloads\cat-4.jpg" alt="Cloud Solution Architect">
+                  <div class="course-info">
+                        Cloud Solution Architect <span class="duration">260 Hrs</span>
+                  </div>
+            </div>
+      </div>
+
+<section class="features-section">
+      <div class="feature-card">
+            <h3>Skilled Instructors</h3>
+            <p>We take pride in delivering top-notch corporate training solutions, backed by over 10 years of industry
+                  expertise. Our experienced trainers specialize in a diverse range of programs, ensuring comprehensive
+                  skill development for professionals.</p>
+      </div>
+
+      <div class="feature-card">
+            <h3>Our Services</h3>
+            <p>Corporate Training: Tailored programs designed for 10+ years of experienced professionals, focusing on
+                  cutting-edge industry trends. We collaborate with reputed colleges across India to provide specialized
+                  training, enhancing students' readiness for the job market.</p>
+      </div>
+
+      <div class="feature-card">
+            <h3>Why Choose Us</h3>
+            <p>Proven Track Record: Over a decade of successful training delivery. Industry-Expert Trainers: Our
+                  trainers bring extensive real-world experience to every program. Placement Success: Our
+                  placement-oriented approach has led to success stories across various colleges.</p>
+      </div>
+
+      <div class="feature-card">
+            <h3>Scholarship Facility</h3>
+            <p>Our scholarship programs are designed to support talented and motivated learners, making our courses more
+                  accessible to a diverse range of individuals. For more information on eligibility and application,
+                  please contact our admissions office.</p>
+      </div>
+</section>
+</body>
+
+</html>
