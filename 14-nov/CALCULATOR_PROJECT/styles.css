@@ -1,0 +1,103 @@
+body{
+      font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            background: rgb(0, 0, 0);
+}
+.calculator{
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      width: 360px;
+      box-shadow: 0 0 8px rgb(176, 176, 176);
+}
+.prev-history{
+      font-size: 14px;
+      color: rgb(108, 106, 106);
+      text-align: right;
+      margin-bottom: 5px;
+}
+
+#display{
+      width: 100%;
+      height: 70px;
+      font-size: 36px;
+      text-align: right;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: 2px solid #ccc;
+      box-sizing: border-box;
+      background: #ffffff;
+}
+.equal-btn{
+      background: #4CAF50;
+      font-size: 30px;
+      justify-content: middle;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 15px;
+      font-weight: bold;
+}
+.clear-btn{
+      width: 100%;
+      padding: 15px;
+      background: #ff9f1c;
+      border: none;
+      border-radius: 12px;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 15px;
+      font-weight: bold;
+}
+.main-section{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+}
+.operator{
+      background: rgb(223, 114, 114);
+      font-size: 10px;
+      justify-content: center;
+      width: 20%;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 300px;
+}
+.number-keys{
+     font-style: calc(100% - 20%);
+      border: none;
+      font-size: 40px;
+      color: white;
+      font-weight: bold;
+      width: 100px;
+      height: 70px;
+      font-size: 28px;
+}
+.button{
+      background: #99d98c;
+      border: none;
+      height: 55px;
+      width: 55px;
+      border-radius: 50%;
+      font-size: 22px;
+      font-weight: bold;
+}
+.equal-sign{
+      background: #4CAF50;
+      font-size: 30px;
+      justify-content: middle;
+}
