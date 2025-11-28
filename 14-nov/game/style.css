@@ -1,0 +1,92 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f4;
+  text-align: center;
+  padding: 20px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #bcd;
+}
+
+.player-box {
+  width: 45%;
+  padding: 20px;
+  background: #f7fbff;
+  border-radius: 15px;
+  box-shadow: inset 0 0 10px #d3e0f5;
+}
+
+.choice-display {
+  font-size: 20px;
+  margin: 15px 0;
+  padding: 10px;
+  background: #eef5ff;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.score {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #0066cc;
+}
+
+.dice {
+  width: 120px;
+  height: 120px;
+  background: #0066ff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  border-radius: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dice:hover {
+  background: #0049b3;
+}
+
+.result {
+  margin-top: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+}
+
+.reset-btn {
+  padding: 12px 25px;
+  margin-top: 20px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: darkred;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #99bbff;
+}

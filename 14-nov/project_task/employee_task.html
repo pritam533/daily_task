@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Employee Management</title>
+      <link rel="stylesheet" href="style1.css">
+     
+</head>
+
+<body>
+
+      <h1>Add Employee</h1>
+
+      <div class="form-container">
+            <form id="employeeForm">
+                  <div class="form-row">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                  </div>
+                  <div class="form-row">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" placeholder="Age range between 18-60" min="18" required max="60">
+                  </div>
+                  <div class="form-row">
+                        <label for="position">Position:</label>
+                        <form>
+                              <select id="position" name="position" required>
+                                    <option value="HR">HR</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Training Manager">Training Manager</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="IT">IT</option>      
+                              </select>
+                              
+                        </form>
+                        <!-- <input type="text" id="position" name="position" required> -->
+                  </div>
+                  <button type="submit" id="addEmployeeBtn">Add Employee</button>
+            </form>
+      </div>
+
+      <h2>Employee List</h2>
+      <div class="table-container">
+            <table>
+                  <thead>
+                        <tr>
+                              <th>Name</th>
+                              <th>Age</th>
+                              <th>Position</th>
+                        </tr>
+                  </thead>
+                  <tbody id="employeeTableBody">
+                        <tr>
+                              <td>Preetam Verma</td>
+                              <td>23</td>
+                              <td>Training Manager</td>
+                        </tr>
+                  </tbody>
+            </table>
+      </div>
+
+      
+<script src="script1.js"></script>
+</body>
+
+</html>
