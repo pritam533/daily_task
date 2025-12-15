@@ -7,6 +7,8 @@
 // });
 
 // module.exports = mongoose.model("Booking", bookingSchema);
+
+
 const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema({
@@ -14,10 +16,8 @@ const bookingSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Event"
       },
-      name: String,
-      email: String,
-      tickets: Number,
-      bookingDate: {
+      userEmail: String,
+      bookedAt: {
             type: Date,
             default: Date.now
       }

@@ -1,66 +1,128 @@
-// const Home = () => {
-//       return (
-//             <div style={styles.container}>
-//                   <h1 style={styles.title}>🎉 Event Registration & Ticketing System</h1>
-//                   <p style={styles.subtitle}>
-//                         Discover events, register easily, and book tickets online
-//                   </p>
 
-//                   <div style={styles.card}>
-//                         <h2>Upcoming Events</h2>
-//                         <p>No events available right now</p>
-//                         <button style={styles.button}>View Events</button>
+// import { useEffect, useState } from "react";
+
+// export default function Home() {
+//       const [events, setEvents] = useState([]);
+
+//       useEffect(() => {
+//             fetch("http://localhost:5000/api/events")
+//                   .then(res => res.json())
+//                   .then(data => setEvents(data));
+//       }, []);
+
+//       return (
+//             <div style={styles.page}>
+//                   <h1 style={styles.heading}> Upcoming Events</h1>
+//                   <img src="C:\Users\pritam\Downloads\Gemini_Generated_Image_cj1ai8cj1ai8cj1a.png" alt="Events" style={{width: "100%", maxHeight: "100%", objectFit: "cover", borderRadius: "12px", marginBottom: "30px"}}/>
+//                   <div style={styles.grid}>
+//                         {events.map(event => (
+//                               <div key={event._id} style={styles.card}>
+//                                     <img
+//                                           src={`http://localhost:5000/uploads/${event.image}`}
+//                                           alt={event.title}
+//                                           style={styles.image}
+//                                     />
+
+//                                     <div style={styles.content}>
+//                                           <h3>{event.title}</h3>
+//                                           <p>{event.description}</p>
+//                                           <p><b>📍</b> {event.location}</p>
+//                                           <p><b>📅</b> {event.date}</p>
+//                                           <p><b>₹</b> {event.price}</p>
+//                                           <p><b>Seats:</b> {event.availableSeats}</p>
+
+//                                           <input
+//                                                 type="email"
+//                                                 placeholder="Enter your email"
+//                                                 style={styles.input}
+//                                                 onChange={(e) => event.email = e.target.value}
+//                                           />
+
+//                                           <button
+//                                                 style={styles.button}
+//                                                 onClick={() => {
+//                                                       fetch(`http://localhost:5000/api/bookings/${event._id}`, {
+//                                                             method: "POST",
+//                                                             headers: { "Content-Type": "application/json" },
+//                                                             body: JSON.stringify({ email: event.email })
+//                                                       })
+//                                                             .then(res => res.json())
+//                                                             .then(data => alert(data.message));
+//                                                 }}
+//                                           >
+//                                                 🎟️ Book Ticket
+//                                           </button>
+
+
+//                                     </div>
+//                               </div>
+//                         ))}
 //                   </div>
 //             </div>
 //       );
-// };
+// }
 
+// /* 🎨 Styles */
 // const styles = {
-//       container: {
-//             minHeight: "100vh",
-//             background: "linear-gradient(135deg, #667eea, #764ba2)",
-//             color: "#fff",
-//             display: "flex",
-//             flexDirection: "column",
-//             alignItems: "center",
-//             justifyContent: "center",
+//       page: {
+//             padding: "40px",
+//             background: "#f4f6fb",
+//             minHeight: "100vh"
+//       },
+//       heading: {
 //             textAlign: "center",
-//             padding: "20px",
+//             marginBottom: "30px"
 //       },
-//       title: {
-//             fontSize: "40px",
-//             marginBottom: "10px",
-//       },
-//       subtitle: {
-//             fontSize: "18px",
-//             marginBottom: "30px",
+//       grid: {
+//             display: "grid",
+//             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+//             gap: "25px"
 //       },
 //       card: {
 //             background: "#fff",
-//             color: "#333",
-//             padding: "25px",
-//             borderRadius: "10px",
-//             width: "300px",
-//             boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+//             borderRadius: "12px",
+//             overflow: "hidden",
+//             boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+//             transition: "0.3s"
+//       },
+//       image: {
+//             width: "100%",
+//             height: "180px",
+//             objectFit: "cover"
+//       },
+//       content: {
+//             padding: "15px"
 //       },
 //       button: {
-//             marginTop: "15px",
-//             padding: "10px 20px",
+//             marginTop: "10px",
+//             width: "100%",
+//             padding: "10px",
 //             border: "none",
-//             borderRadius: "5px",
-//             backgroundColor: "#667eea",
+//             borderRadius: "8px",
+//             background: "#667eea",
 //             color: "#fff",
-//             cursor: "pointer",
+//             cursor: "pointer"
 //       },
+//       input: {
+//             padding: "8px",
+//             width: "100%",
+//             borderRadius: "6px",
+//             border: "1px solid #ccc",
+//             marginBottom: "8px"
+//       }
+
 // };
 
-// export default Home;
+
+
 
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
       const [events, setEvents] = useState([]);
+      const navigate = useNavigate();
 
       useEffect(() => {
             fetch("http://localhost:5000/api/events")
@@ -68,24 +130,90 @@ export default function Home() {
                   .then(data => setEvents(data));
       }, []);
 
+      const handleClick = (id) => {
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+                  localStorage.setItem("redirectAfterLogin", `/book/${id}`);
+                  navigate("/login");
+            } else {
+                  navigate(`/book/${id}`);
+            }
+      };
+
       return (
-            <div style={{ padding: "20px" }}>
-                  <h2>Available Events</h2>
+            <div style={styles.page}>
+                  <h1 style={styles.title}> Upcoming Events</h1>
 
-                  {events.map(event => (
-                        <div key={event._id} style={{ border: "1px solid #ccc", padding: "15px", margin: "10px 0" }}>
-                              <h3>{event.title}</h3>
-                              <p>{event.description}</p>
-                              <p>Date: {event.date}</p>
-                              <p>Location: {event.location}</p>
-                              <p>Price: ₹{event.price}</p>
-                              <p>Seats Left: {event.availableSeats}</p>
+                  <div style={styles.grid}>
+                        {events.map(event => (
+                              <div
+                                    key={event._id}
+                                    style={styles.card}
+                                    onClick={() => handleClick(event._id)}
+                              >
+                                    <img
+                                          src={`http://localhost:5000/uploads/${event.image}`}
+                                          alt=""
+                                          style={styles.image}
+                                    />
 
-                              <a href={`/book/${event._id}`}>
-                                    <button>Book Ticket</button>
-                              </a>
-                        </div>
-                  ))}
+                                    <div style={styles.body}>
+                                          <h3>{event.title}</h3>
+                                          <p>{event.description}</p>
+                                          <p>📍 {event.location}</p>
+                                          <p>💰 ₹{event.price}</p>
+                                          <button style={styles.btn}>Book Now</button>
+                                    </div>
+                              </div>
+                        ))}
+                  </div>
             </div>
       );
 }
+
+/* 🎨 CSS-IN-JS */
+const styles = {
+      page: {
+            padding: "40px",
+            background: "#f4f6ff",
+            minHeight: "100vh"
+      },
+      title: {
+            textAlign: "center",
+            marginBottom: "30px",
+            fontSize: "32px",
+            color: "#333"
+      },
+      grid: {
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: "25px"
+      },
+      card: {
+            background: "#fff",
+            borderRadius: "15px",
+            overflow: "hidden",
+            cursor: "pointer",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+            transition: "transform 0.3s",
+      },
+      image: {
+            width: "100%",
+            height: "180px",
+            objectFit: "cover"
+      },
+      body: {
+            padding: "15px"
+      },
+      btn: {
+            marginTop: "10px",
+            width: "100%",
+            padding: "10px",
+            borderRadius: "8px",
+            border: "none",
+            background: "#667eea",
+            color: "#fff",
+            cursor: "pointer"
+      }
+};

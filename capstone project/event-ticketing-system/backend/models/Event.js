@@ -8,6 +8,7 @@ const eventSchema = new mongoose.Schema({
       price: Number,
       totalSeats: Number,
       availableSeats: Number,
+      image: String
 });
 
 module.exports = mongoose.model("Event", eventSchema);
